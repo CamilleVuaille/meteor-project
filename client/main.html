@@ -1,0 +1,43 @@
+<head>
+  <title>TodoList</title>
+</head>
+
+<body>
+  <main>
+    <h1>This is a wonderful TodoList</h1>
+    
+    {{> newtask }}
+    {{> tasks }}
+  </main>
+</body>
+
+<template name="tasks">
+  <ul>
+    {{#each all_tasks}}
+      <li>
+        <form class="form-update">
+          <input type="checkbox" checked="{{status}}"  class="toggle-hecked" /> 
+          <span class="span">{{ text }}</span>        
+          <div class="div-update">
+            <!-- <input type="text" name="update-text-task" class="update-text-task"/> -->
+            <button class="update-submit">Modifier</button>
+            <button class="cancel">Annuler</button>
+          </div> 
+        </form>
+       
+        
+        <!-- <button class="update"><img src="/img/pencil.svg" alt="Modifier" width="20" height="20"></button>
+        <button class="delete"><img src="/img/trash.svg" alt="Supprimer" width="20" height="20"></button> -->
+        <input class="update" type="image" src="/img/pencil.svg" alt="Modifier">
+        <input class="delete" type="image" src="/img/trash.svg" alt="Supprimer">
+      </li>
+    {{/each}}
+  </ul>
+</template>
+
+
+<template name="newtask">
+  <form class="new-task">
+    <input type="text" name="text" placeholder="Ajouter une nouvelle tâche" id="task"/><button id="submit">OK</button>
+  </form>
+</template>
